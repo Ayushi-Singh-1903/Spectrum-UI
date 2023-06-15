@@ -55,6 +55,8 @@ class _ButtonScreenState extends State<ButtonScreen> {
 
   List<Color?> customAnimatedButtonColor = [null, null];
 
+  get customTextButtonColor => null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -125,7 +127,7 @@ class _ButtonScreenState extends State<ButtonScreen> {
                 alignment: Alignment.centerLeft,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("Ouline Buttons",
+                  child: Text("Outline Buttons",
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -237,63 +239,7 @@ class _ButtonScreenState extends State<ButtonScreen> {
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text("Animated Buttons",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: MyTheme.lightBluishColor)),
-                ),
-              ),
-              Wrap(
-                direction: Axis.horizontal,
-                children: List.generate(
-                  customAnimatedButton.length,
-                  (index) => Consumer<FavoritesProvider>(
-                    builder: (context, favProviderModel, child) => Column(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 8,
-                          ),
-                          width: double.infinity,
-                          child: customAnimatedButton[index],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 3, 20, 3),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text('Add to favorite'),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  favProviderModel
-                                      .add(customTextButtonIndex[index]);
-                                  setState(() {
-                                    customTextButtonColor[index] = Colors.amber;
-                                  });
-                                },
-                                child: Icon(
-                                  Icons.star_border_outlined,
-                                  color: customAnimatedButtonColor[index],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+
               // SizedBox(
               //   width: (MediaQuery.of(context).size.width / 2 - 20),
               //   child: ListView.builder(

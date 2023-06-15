@@ -27,7 +27,7 @@ class _FavPageState extends State<FavPage> {
           return Consumer<FavoritesProvider>(
             builder: (context, favProviderModel, child) => AlertDialog(
               title: const Text('Remove'),
-              content: const SingleChildScrollView(
+              content:  SingleChildScrollView(
                 child: ListBody(
                   children: <Widget>[
                     Text(
